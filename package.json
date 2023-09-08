@@ -1,0 +1,9 @@
+{
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "client-extensions/liferay-db-connector-user-interface",
+            "client-extensions/liferay-db-connector-object-entry-manager-etc-node"
+        ]
+    }
+}

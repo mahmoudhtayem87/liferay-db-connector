@@ -1,0 +1,31 @@
+assemble:
+    - include:
+          - "**/*.js"
+          - package.json
+liferay-db-connector-oauth-application-user-agent:
+    .serviceAddress: localhost:5001
+    .serviceScheme: http
+    name: Liferay DB Connector Node OAuth Application User Agent
+    scopes:
+        - Liferay.Headless.Admin.Workflow.everything
+        - Liferay.Headless.Batch.Engine.everything
+        - Liferay.Object.Admin.REST.everything
+        - C_DBConnect.everything
+    type: oAuthApplicationHeadlessServer
+    userAccountScreenName: default-service-account
+liferay-db-connector-object-manager-etc-node:
+    name: Liferay DB Connector - Object Entry Manager
+    oAuth2ApplicationExternalReferenceCode: liferay-db-connector-oauth-application-user-agent
+    resourcePath: /dynamic/db
+    type: objectEntryManager
+liferay-db-connector-connect-etc-node:
+    name: Connect to external DB table
+    oAuth2ApplicationExternalReferenceCode: liferay-db-connector-oauth-application-user-agent
+    resourcePath: /actions/db/connect
+    type: objectAction
+liferay-db-connector-disconnect-etc-node:
+    name: Disconnect from external DB table
+    oAuth2ApplicationExternalReferenceCode: liferay-db-connector-oauth-application-user-agent
+    resourcePath: /actions/db/disconnect
+    type: objectAction
+
